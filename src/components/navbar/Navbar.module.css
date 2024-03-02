@@ -1,0 +1,179 @@
+.nav {
+    background-color: #1dbf73;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 12vh;
+    padding: 0 60px;
+}
+
+.header .logo {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #fff;
+}
+
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.links ul {
+    display: flex;
+    align-items: center !important;
+    gap: 1rem;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.links ul li a {
+    position: relative;
+    padding: 5px;
+}
+
+.links ul li a span:first-child::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    background: transparent;
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    transition: .2s;
+    opacity: 0;
+}
+
+.links ul li a:hover span:first-child::before {
+    top: -3px;
+    left: -3px;
+    opacity: 1;
+}
+
+.links ul li a span:first-child::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    background: transparent;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+    transition: .2s;
+    opacity: 0;
+}
+
+.links ul li a:hover span:first-child::after {
+    top: -3px;
+    right: -3px;
+    opacity: 1;
+}
+
+.links ul li a span:last-child::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    background: transparent;
+    border-bottom: 2px solid #fff;
+    border-left: 2px solid #fff;
+    transition: .2s;
+    opacity: 0;
+}
+
+.links ul li a:hover span:last-child::before {
+    bottom: -3px;
+    left: -3px;
+    opacity: 1;
+}
+
+.links ul li a span:last-child::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    background: transparent;
+    border-bottom: 2px solid #fff;
+    border-right: 2px solid #fff;
+    transition: .2s;
+    opacity: 0;
+}
+
+.links ul li a:hover span:last-child::after {
+    bottom: -3px;
+    right: -3px;
+    opacity: 1;
+}
+
+.register {
+    background-color: #fff;
+    color: #1dbf73;
+    padding: .4rem;
+    border-radius: 40px;
+}
+
+.hamburgerMenu {
+    display: none;
+}
+
+@media (max-width: 840px) {
+    .header {
+        padding: 0 15px;
+    }
+
+    .logo-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .hamburgerMenu {
+        display: block;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        margin-top: 12vh;
+        height: 88vh;
+        width: 100%;
+        background-color: #1dbf73;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .links.open {
+        transform: translateX(0);
+    }
+
+    .links ul {
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 0;
+    }
+
+    .links ul li {
+        margin-bottom: 1rem;
+    }
+}
