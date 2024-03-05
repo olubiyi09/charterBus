@@ -16,7 +16,11 @@ const Navbar = () => {
         <nav className={styles.nav}>
             <div className={styles.header}>
                 <div className={styles["logo-wrapper"]}>
-                    <div className={styles.logo}>CharterBus</div>
+                    <div className={styles.logo}>
+                        <Link href="/">
+                            CharterBus
+                        </Link>
+                    </div>
                     <div className={styles.hamburgerMenu} onClick={toggleMenu}>
                         {isOpen ? <RiCloseLine size={34} /> : <RiMenu3Line size={34} />}
                     </div>
