@@ -18,7 +18,7 @@
     text-align: center;
     font-size: 2rem;
     font-weight: 600;
-    color: #1dbf73;
+    color: #114232;
     margin-bottom: 1rem;
 }
 
@@ -44,16 +44,20 @@
     position: absolute;
     top: 25%;
     right: 3%;
-    color: #1dbf73;
+    color: #114232;
 }
 
 .form form button {
     font-size: 17px;
     height: 50px;
-    background-color: #1dbf73;
+    background-color: #114232;
     color: #fff;
     border: none;
     letter-spacing: .3px;
     border-radius: 8px;
     transition: .3s;
+}
+
+.link-span {
+    color: #114232;
 }

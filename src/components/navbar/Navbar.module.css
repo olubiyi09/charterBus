@@ -1,5 +1,5 @@
 .nav {
-    background-color: #1dbf73;
+    background-color: #114232;
 }
 
 .header {
@@ -15,7 +15,7 @@
     align-items: center;
     font-size: 2rem;
     font-weight: 500;
-    color: #fff;
+    color: #f5f4a7;
 }
 
 .logo-wrapper {
@@ -27,7 +27,7 @@
     display: flex;
     align-items: center !important;
     gap: 1rem;
-    color: #fff;
+    color: #f5f4a7;
     font-size: 16px;
     font-weight: 600;
 }
@@ -45,8 +45,8 @@
     width: 8px;
     height: 8px;
     background: transparent;
-    border-top: 2px solid #fff;
-    border-left: 2px solid #fff;
+    border-top: 2px solid #f5f4a7;
+    border-left: 2px solid #f5f4a7;
     transition: .2s;
     opacity: 0;
 }
@@ -65,8 +65,8 @@
     width: 8px;
     height: 8px;
     background: transparent;
-    border-top: 2px solid #fff;
-    border-right: 2px solid #fff;
+    border-top: 2px solid #f5f4a7;
+    border-right: 2px solid #f5f4a7;
     transition: .2s;
     opacity: 0;
 }
@@ -85,8 +85,8 @@
     width: 8px;
     height: 8px;
     background: transparent;
-    border-bottom: 2px solid #fff;
-    border-left: 2px solid #fff;
+    border-bottom: 2px solid #f5f4a7;
+    border-left: 2px solid #f5f4a7;
     transition: .2s;
     opacity: 0;
 }
@@ -105,8 +105,8 @@
     width: 8px;
     height: 8px;
     background: transparent;
-    border-bottom: 2px solid #fff;
-    border-right: 2px solid #fff;
+    border-bottom: 2px solid #f5f4a7;
+    border-right: 2px solid #f5f4a7;
     transition: .2s;
     opacity: 0;
 }
@@ -118,8 +118,8 @@
 }
 
 .register {
-    background-color: #fff;
-    color: #1dbf73;
+    background-color: #f5f4a7;
+    color: #114232;
     padding: .4rem;
     border-radius: 40px;
 }
@@ -142,7 +142,7 @@
 
     .hamburgerMenu {
         display: block;
-        color: #fff;
+        color: #FCDC2A;
         cursor: pointer;
     }
 
@@ -153,7 +153,7 @@
         margin-top: 12vh;
         height: 88vh;
         width: 100%;
-        background-color: #1dbf73;
+        background-color: #114232;
         z-index: 10;
         display: flex;
         flex-direction: column;

@@ -2,43 +2,31 @@
 import React, { useState } from 'react';
 import "@/commonClass/style.css";
 import { toast } from 'sonner';
-import { FaRegUser } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
 import { RiLockPasswordLine } from 'react-icons/ri';
 import Link from 'next/link';
 
-const Register = () => {
+const Login = () => {
     const [formData, setFormData] = useState({
-        username: "",
         email: "",
         password: "",
     });
-    const [cpassword, setcpassword] = useState("")
 
-    const { username, email, password } = formData;
+    const { email, password } = formData;
 
     const handleChange = (e: any) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
-    const handleCpChange = (e: any) => {
-        setcpassword(e.target.value)
-    };
-
     const handleSubmit = (e: any) => {
         e.preventDefault();
 
-        if (username === "" || email === "" || password === "" || cpassword === "") {
+        if (email === "" || password === "") {
             toast.error("All fields are required");
             return;
         }
 
         if (password.length < 7) {
             toast.error("Password character must be up to 7");
-            return;
-        }
-
-        if (password !== cpassword) {
-            toast.error("Passwords do not match");
             return;
         }
 
@@ -51,7 +39,6 @@ const Register = () => {
 
         // Here you can proceed with your form submission
         console.log("Form submitted:", formData);
-        console.log("Form submitted:", cpassword);
     };
 
     return (
@@ -59,20 +46,7 @@ const Register = () => {
             <div className="form">
                 <div className='form-wrapper'>
                     <form onSubmit={handleSubmit}>
-                        <h1>Register</h1>
-
-                        <div className='input-wrapper'>
-                            <input
-                                type="text"
-                                id='username'
-                                name='username'
-                                placeholder='Username'
-                                value={username}
-                                onChange={handleChange}
-                            />
-                            <FaRegUser size={16} className="icon" />
-                        </div>
-
+                        <h1>Login</h1>
 
                         <div className='input-wrapper'>
                             <input
@@ -99,20 +73,8 @@ const Register = () => {
                             <RiLockPasswordLine size={18} className="icon" />
                         </div>
 
-                        <div className='input-wrapper'>
-                            <input
-                                type="password"
-                                id='cpassword'
-                                name='cpassword'
-                                placeholder='Confirm Password'
-                                value={cpassword}
-                                onChange={handleCpChange}
-                            />
-                            <RiLockPasswordLine size={18} className="icon" />
-                        </div>
-
-                        <button type="submit">Submit</button>
-                        <p className="p-2">Already have an Account? <Link href="/login"><span className="link-span">Login</span></Link></p>
+                        <button type="submit">Login</button>
+                        <p className="p-2">Don't have an Account? <Link href="/register"><span className="link-span">Register</span></Link></p>
                     </form>
                 </div>
             </div>
@@ -120,4 +82,4 @@ const Register = () => {
     );
 };
 
-export default Register;
+export default Login;
