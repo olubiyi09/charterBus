@@ -1,5 +1,9 @@
 .nav {
     background-color: #114232;
+    position: fixed;
+    width: 100%;
+    z-index: 9999999999;
+
 }
 
 .header {
@@ -7,7 +11,7 @@
     justify-content: space-between;
     align-items: center;
     height: 12vh;
-    padding: 0 60px;
+    padding: 0 80px;
 }
 
 .header .logo {
@@ -131,6 +135,10 @@
 @media (max-width: 840px) {
     .header {
         padding: 0 15px;
+        position: fixed;
+        width: 100%;
+        background-color: #114232;
+        z-index: 9999999999;
     }
 
     .logo-wrapper {
