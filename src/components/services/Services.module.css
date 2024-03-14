@@ -1,0 +1,126 @@
+.services-wrapper {
+    padding: 5rem 80px;
+}
+
+
+.service-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.service-header h2 {
+    color: #114232;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.service-header h1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+}
+
+.service-header p {
+    width: 50%;
+    margin: auto;
+    padding-bottom: 3rem;
+    font-weight: 500;
+    color: gray;
+}
+
+
+.service-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    column-gap: 1.2rem;
+    row-gap: 1.5rem;
+    width: 100%;
+}
+
+.service-item {
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem 1rem;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.service-item h3 {
+    margin: .7rem 0;
+    color: #114232;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.service-item p {
+    font-weight: 500;
+    color: gray;
+}
+
+.service-item:hover {
+    background-color: #114232;
+
+}
+
+.service-item:hover .s-icon {
+    color: #FCDC2A !important;
+}
+
+.service-item:hover h3 {
+    color: #f5f4a7;
+}
+
+.service-item:hover p {
+    color: #fff;
+}
+
+.service-item::before,
+.service-item::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #114232;
+    transition: transform 0.3s ease-in-out;
+    z-index: -1;
+    transform: translateY(100%);
+}
+
+.service-item::after {
+    transform: translateY(-100%);
+}
+
+.service-item:hover::before {
+    transform: translateY(0);
+}
+
+.service-item:hover::after {
+    transform: translateY(0);
+}
+
+@media screen and (max-width: 840px) {
+    .service-header p {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .services-wrapper {
+        padding: 5rem 10px;
+    }
+
+    .service-header h1 {
+        font-size: 2rem;
+        line-height: 2.5rem;
+        margin-bottom: .5rem;
+    }
+
+
+    .service-header p {
+        width: 100%;
+    }
+}
