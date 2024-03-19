@@ -59,20 +59,24 @@
     color: gray;
 }
 
-.service-item:hover {
+.service-item:hover,
+.actv {
     background-color: #114232;
 
 }
 
-.service-item:hover .s-icon {
+.service-item:hover .s-icon,
+.actv .s-icon {
     color: #FCDC2A !important;
 }
 
-.service-item:hover h3 {
+.service-item:hover h3,
+.actv h3 {
     color: #f5f4a7;
 }
 
-.service-item:hover p {
+.service-item:hover p,
+.actv p {
     color: #fff;
 }
 
@@ -101,6 +105,8 @@
 .service-item:hover::after {
     transform: translateY(0);
 }
+
+
 
 @media screen and (max-width: 840px) {
     .service-header p {

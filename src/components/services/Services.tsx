@@ -31,7 +31,7 @@ const Services = () => {
                         </p>
                     </div>
 
-                    <div className={styles["service-item"]}>
+                    <div className={`${styles["service-item"]} ${styles.actv}`}>
                         <MdOutlineDiscount size={40} color="#114232" className={styles["s-icon"]} />
                         <h3>Discount & Promo</h3>
                         <p>
