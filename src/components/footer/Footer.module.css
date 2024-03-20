@@ -1,0 +1,43 @@
+.wrapper {
+    background-color: #114232;
+    padding: 5rem 80px 3rem 80px;
+}
+
+.footer-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+}
+
+.footer-sec1 {
+    padding: 0 2rem 1rem 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #f5f4a7;
+}
+
+.footer-sec1 p {
+    color: #f5f4a7;
+}
+
+.social {
+    display: flex;
+    margin-top: 1rem;
+}
+
+.social .icon {
+    background-color: #f5f4a7;
+    margin-right: 10px;
+    padding: 5px;
+    border-radius: 3px;
+    transition: .3s ease-in-out;
+    cursor: pointer;
+}
+
+.social .icon:hover {
+    transform: translateY(-3px);
+}

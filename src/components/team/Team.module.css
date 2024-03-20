@@ -5,6 +5,7 @@
     flex-direction: column;
     width: 90%;
     margin: auto;
+    padding-bottom: 5rem;
 }
 
 .wrapper h1 {
