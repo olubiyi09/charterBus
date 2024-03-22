@@ -53,7 +53,7 @@ const Navbar = () => {
                             </Link>
                         </li>
                         <li className={styles.register}>
-                            <Link href="/register">
+                            <Link href="/register" onClick={() => setIsOpen(!isOpen)}>
                                 Register
                             </Link>
                         </li>

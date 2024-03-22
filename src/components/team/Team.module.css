@@ -21,6 +21,10 @@
     width: 90%;
 }
 
+.team span {
+    margin: auto;
+}
+
 .team span img {
     width: 320px;
     height: 300px;
@@ -44,4 +48,32 @@
     font-size: 1rem;
     font-weight: 500;
     color: grey;
+}
+
+@media (max-width: 770px) {
+    .team {
+        grid-template-columns: repeat(auto-fit, minmax(305px, 1fr));
+        width: 100%;
+    }
+
+    .team span img {
+        width: 305px;
+        height: 300px;
+    }
+}
+
+@media (max-width: 600px) {
+    .wrapper h1 {
+        font-size: 2.3rem;
+    }
+
+    .team {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        width: 100%;
+    }
+
+    .team span img {
+        width: 320px;
+        height: 300px;
+    }
 }
