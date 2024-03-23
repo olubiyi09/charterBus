@@ -5,6 +5,8 @@ import { toast } from 'sonner';
 import { MdOutlineEmail } from "react-icons/md";
 import { RiLockPasswordLine } from 'react-icons/ri';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import axios from 'axios';
 
 const Login = () => {
     const [formData, setFormData] = useState({
@@ -14,10 +16,12 @@ const Login = () => {
 
     const { email, password } = formData;
 
+    const router = useRouter();
+
     const handleChange = (e: any) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
-    const handleSubmit = (e: any) => {
+    const handleSubmit = async (e: any) => {
         e.preventDefault();
 
         if (email === "" || password === "") {
@@ -39,6 +43,22 @@ const Login = () => {
 
         // Here you can proceed with your form submission
         console.log("Form submitted:", formData);
+
+
+        try {
+            // dispatch(setLoading(true))
+            const response = await axios.post("/api/users/login", formData);
+            toast.success(response.data.message)
+            router.push("/")
+            setFormData({
+                email: '',
+                password: '',
+            });
+        } catch (error: any) {
+            toast.error(error.response.data.message || "Something went wrong")
+        } finally {
+            // dispatch(setLoading(false))
+        }
     };
 
     return (
