@@ -6,6 +6,8 @@ import { FaRegUser } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
 import { RiLockPasswordLine } from 'react-icons/ri';
 import Link from 'next/link';
+import axios from 'axios';
+import { useRouter } from 'next/navigation';
 
 const Register = () => {
     const [formData, setFormData] = useState({
@@ -16,6 +18,7 @@ const Register = () => {
     const [cpassword, setcpassword] = useState("")
 
     const { username, email, password } = formData;
+    const router = useRouter();
 
     const handleChange = (e: any) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -24,7 +27,7 @@ const Register = () => {
         setcpassword(e.target.value)
     };
 
-    const handleSubmit = (e: any) => {
+    const handleSubmit = async (e: any) => {
         e.preventDefault();
 
         if (username === "" || email === "" || password === "" || cpassword === "") {
@@ -51,7 +54,24 @@ const Register = () => {
 
         // Here you can proceed with your form submission
         console.log("Form submitted:", formData);
-        console.log("Form submitted:", cpassword);
+
+        try {
+            // dispatch(setLoading(true))
+            const response = await axios.post("/api/users/register", formData);
+            toast.success(response.data.message)
+            router.push("/login")
+            setFormData({
+                username: '',
+                email: '',
+                password: '',
+            });
+        } catch (error: any) {
+            toast.error(error.response.data.message || "Something went wrong")
+        } finally {
+            // dispatch(setLoading(false))
+        }
+
+
     };
 
     return (

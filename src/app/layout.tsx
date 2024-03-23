@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Toaster richColors position="top-right" />
+        <Toaster richColors position="top-right" className="z-50" />
         <Navbar />
         {children}
       </body>
