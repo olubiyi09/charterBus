@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "@/components/navbar/Navbar";
-import { Toaster } from "sonner";
+import ReduxProvider from "@/components/ReduxProvider";
+import LayoutProvider from "@/components/LayoutProvider";
 
 
 export const metadata: Metadata = {
@@ -15,12 +15,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
-        <Toaster richColors position="top-right" className="z-50" />
-        <Navbar />
+    <ReduxProvider>
+      <LayoutProvider>
         {children}
-      </body>
-    </html>
+      </LayoutProvider>
+    </ReduxProvider>
   );
 }

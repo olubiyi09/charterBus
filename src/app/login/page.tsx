@@ -7,6 +7,8 @@ import { RiLockPasswordLine } from 'react-icons/ri';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { setLoading } from '@/redux/loaderSlide';
 
 const Login = () => {
     const [formData, setFormData] = useState({
@@ -17,6 +19,7 @@ const Login = () => {
     const { email, password } = formData;
 
     const router = useRouter();
+    const dispatch = useDispatch()
 
     const handleChange = (e: any) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -46,7 +49,7 @@ const Login = () => {
 
 
         try {
-            // dispatch(setLoading(true))
+            dispatch(setLoading(true))
             const response = await axios.post("/api/users/login", formData);
             toast.success(response.data.message)
             router.push("/")
@@ -57,7 +60,7 @@ const Login = () => {
         } catch (error: any) {
             toast.error(error.response.data.message || "Something went wrong")
         } finally {
-            // dispatch(setLoading(false))
+            dispatch(setLoading(false))
         }
     };
 
