@@ -1,19 +1,24 @@
 "use client"
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styles from "./Navbar.module.css";
 import Link from 'next/link';
 import { RiCloseLine } from "react-icons/ri";
 import { RiMenu3Line } from "react-icons/ri";
-import axios from 'axios';
-import { usePathname } from 'next/navigation';
 import Loader from '../loader/Loader';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { setLoading } from '@/redux/loaderSlide';
+import axios from 'axios';
+import { toast } from 'sonner';
+import { setCurrentUser } from '@/redux/usersSlice';
+import { useRouter } from 'next/navigation';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     const { currentUser } = useSelector((state: any) => state.users)
     const { loading } = useSelector((state: any) => state.loaders)
+    const dispatch = useDispatch()
+    const router = useRouter();
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -23,10 +28,18 @@ const Navbar = () => {
 
     const handleLogout = async () => {
         try {
-            // Add your logout logic here, such as clearing cookies or tokens
-            // After successful logout, update the state
-        } catch (error) {
+            dispatch(setLoading(true));
+            await axios.post("/api/users/logout");
+            toast.success("Logged out successfully");
+            dispatch(setCurrentUser(null));
+            window.location.reload();
+            router.push("/");
+        } catch (error: any) {
             console.error("Logout error:", error);
+            toast.error(error.response?.data?.message || "Something went wrong");
+
+        } finally {
+            dispatch(setLoading(false));
         }
     };
 
@@ -65,7 +78,7 @@ const Navbar = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/">
+                                <Link href="/ourbus" onClick={() => setIsOpen(!isOpen)}>
                                     Our Bus<span></span><span></span>
                                 </Link>
                             </li>

@@ -15,7 +15,6 @@ const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
   const dispatch = useDispatch()
   const { loading } = useSelector((state: any) => state.loaders)
   const { currentUser } = useSelector((state: any) => state.users)
-  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const getCurrentUser = async () => {
     try {
@@ -27,7 +26,6 @@ const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
       dispatch(setCurrentUser(null))
     } finally {
       dispatch(setLoading(false))
-      setIsLoading(false);
     }
   }
 
